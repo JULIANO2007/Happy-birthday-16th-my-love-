@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sweet Sixteen — cykal qivi ichiya putri 💖</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&family=Parisienne&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Parallax + Bokeh + Hearts (canvas layers) -->
+  <div class="parallax">
+    <div class="layer layer-1" aria-hidden="true"></div>
+    <div class="layer layer-2" aria-hidden="true"></div>
+    <div class="layer layer-3" aria-hidden="true"></div>
+  </div>
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
+  <canvas id="fxCanvas" aria-hidden="true"></canvas>
+
+  <!-- Mini Nav -->
+  <header class="mini-nav">
+    <a href="#hero" class="logo" aria-label="Kembali ke awal">
+      <span class="logo-heart" aria-hidden="true">❤</span> Cinta16
+    </a>
+    <nav>
+      <a href="#kata">Kata-kata</a>
+      <a href="#alasan">16 Alasan</a>
+      <a href="#doa">Harapan & Doa</a>
+      <a href="#wish">Make a Wish</a>
+      <a href="#kejutan">Kejutan</a>
+    </nav>
+    <div class="nav-actions">
+      <button id="musicBtn" class="icon-btn" aria-label="Putar / Jeda musik romantis" title="Musik">
+        <span class="icon" aria-hidden="true">♫</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" class="hero section">
+    <div class="hero-grid">
+      <div class="hero-copy glass">
+        <h1 class="display">
+          <span class="script"> Selamat ulang tahun - 16th my love </span>
+          <span class="name">cykal qivi ichiya putri</span>
+        </h1>
+
+        <p id="typewriter" class="typewriter" aria-live="polite"></p>
+        <div class="hero-ctas">
+          <button id="blowBtn" class="btn primary" aria-label="Tiup lilin">🎂 Tiup Lilin</button>
+          <button id="scrollWords" class="btn ghost" aria-label="Lanjut baca kata-kata manis">Baca Kata-kata 💖</button>
+        </div>
+        <small class="hint">Klik di mana saja untuk menebar hati kecil ✨</small>
+      </div>
+
+      <!-- SVG Cake -->
+      <figure class="cake-wrap" aria-label="Kue ulang tahun tiga lapis dengan lilin menyala">
+        <svg id="cake" viewBox="0 0 420 420" role="img" aria-labelledby="cakeTitle cakeDesc">
+          <title id="cakeTitle">Kue Ulang Tahun Tiga Lapis</title>
+          <desc id="cakeDesc">Kue bergradasi dengan krim, stroberi, dan lilin menyala yang dapat ditiup</desc>
+
+          <!-- Plate -->
+          <ellipse cx="210" cy="370" rx="160" ry="20" fill="#f9e7f2" stroke="#f1cfe0" stroke-width="2"></ellipse>
+
+          <!-- Layer 1 (bottom) -->
+          <g class="layer-cake">
+            <rect x="70" y="260" width="280" height="80" rx="20" fill="#FFD1E8" />
+            <path d="M70 260 Q210 300 350 260 L350 280 Q210 320 70 280 Z" fill="#FDE6FF"/>
+            <!-- Drip -->
+            <path class="drip" d="M90 280 q10 20 0 40 q30 -10 30 10 q20 -25 30 0 q20 -30 30 5 q15 -30 25 0 q25 -35 40 10 q18 -28 28 0 q20 -30 30 5 q25 -40 45 10 V280 Z" fill="#FFF7FB" opacity="0.9"/>
+            <!-- Strawberries -->
+            <g class="berries" transform="translate(0,0)">
+              <g transform="translate(100,255)">
+                <ellipse rx="12" ry="10" fill="#ff6b7a"/>
+                <circle cx="-4" cy="-4" r="2" fill="#ffd166"/>
+                <circle cx="3" cy="0" r="2" fill="#ffd166"/>
+                <path d="M-7 -10 q7 -10 14 0" fill="#67d37a"/>
+              </g>
+              <g transform="translate(210,252) scale(1.1)">
+                <ellipse rx="12" ry="10" fill="#ff6b7a"/>
+                <circle cx="-4" cy="-4" r="2" fill="#ffd166"/>
+                <circle cx="3" cy="0" r="2" fill="#ffd166"/>
+                <path d="M-7 -10 q7 -10 14 0" fill="#67d37a"/>
+              </g>
+              <g transform="translate(320,255)">
+                <ellipse rx="12" ry="10" fill="#ff6b7a"/>
+                <circle cx="-4" cy="-4" r="2" fill="#ffd166"/>
+                <circle cx="3" cy="0" r="2" fill="#ffd166"/>
+                <path d="M-7 -10 q7 -10 14 0" fill="#67d37a"/>
+              </g>
+            </g>
+          </g>
+
+          <!-- Layer 2 (middle) -->
+          <g class="layer-cake">
+            <rect x="100" y="190" width="220" height="75" rx="18" fill="#FFE3EC" />
+            <path d="M100 190 Q210 220 320 190 L320 210 Q210 235 100 210 Z" fill="#FFF7FB"/>
+            <path class="drip" d="M115 210 q10 22 0 38 q25 -10 28 8 q16 -20 24 2 q15 -24 22 5 q20 -28 36 8 q14 -22 20 0 q18 -24 26 3 q20 -35 35 8 V210 Z" fill="#fff" opacity="0.9"/>
+          </g>
+
+          <!-- Layer 3 (top) -->
+          <g class="layer-cake">
+            <rect x="130" y="135" width="160" height="60" rx="16" fill="#E3D5FF" />
+            <path d="M130 135 Q210 158 290 135 L290 150 Q210 170 130 150 Z" fill="#FDE6FF"/>
+          </g>
+
+          <!-- Candle -->
+          <g id="candle" transform="translate(210,110)">
+            <rect x="-10" y="0" width="20" height="40" rx="6" fill="#ffd1a1" stroke="#f1b36d" stroke-width="2"/>
+            <!-- Wick -->
+            <rect x="-1.5" y="-10" width="3" height="10" fill="#2f2f2f" />
+            <!-- Flame (animated) -->
+            <g class="flame">
+              <path d="M0 -30 C 8 -40, 10 -52, 0 -60 C -10 -52, -8 -40, 0 -30 Z" fill="url(#flameGrad)">
+                <animateTransform attributeName="transform" type="scale" values="1,1;1.05,0.95;1,1" dur="1.4s" repeatCount="indefinite"/>
+              </path>
+              <circle cx="0" cy="-36" r="6" fill="rgba(255,255,255,.5)">
+                <animate attributeName="r" values="6;7;6" dur="1.4s" repeatCount="indefinite"/>
+              </circle>
+            </g>
+            <!-- Smoke (hidden until blown) -->
+            <g class="smoke" opacity="0">
+              <circle cx="0" cy="-30" r="3" fill="rgba(160,160,160,.6)"/>
+              <circle cx="-6" cy="-42" r="2.5" fill="rgba(160,160,160,.45)"/>
+              <circle cx="5" cy="-56" r="2" fill="rgba(160,160,160,.3)"/>
+            </g>
+          </g>
+
+          <!-- Gradients -->
+          <defs>
+            <radialGradient id="flameGrad" cx="50%" cy="40%" r="60%">
+              <stop offset="0%" stop-color="#fff6b0"/>
+              <stop offset="60%" stop-color="#ffb347"/>
+              <stop offset="100%" stop-color="#ff6a00"/>
+            </radialGradient>
+          </defs>
+        </svg>
+
+        <figcaption class="sr-only">Tekan “Tiup Lilin” untuk memadamkan api.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Kata-kata Cinta -->
+  <section id="kata" class="section content glass">
+    <h2 class="section-title">Kata-kata Cinta</h2>
+    <p>
+      Selamat ulang tahun ke-16, <strong>cykal qivi ichiya putri</strong>. Di antara bintang yang malu-malu, namamu seperti
+      lampu-lampu kecil yang menuntun pulang. Sweet sixteen yang bersinar, semoga langkahmu selalu diliputi cinta dan cahaya. 💖
+    </p>
+    <p>
+      Hari ini, esok, dan seterusnya, aku bersyukur memilikimu—bukan hanya sebagai kisah indah, tapi juga sebagai sahabat
+      yang menggenggam tanganku saat ragu, menepuk pundakku saat lelah, dan tertawa paling keras saat kita lucu bersama.
+      Jika waktu adalah lagu, maka kamu adalah nada-nada manis yang membuat segalanya terdengar lebih utuh.
+    </p>
+    <blockquote class="poem" aria-label="Puisi untuk cykal qivi ichiya putri">
+      Di gelas senja, kutuang namamu perlahan,<br>
+      jadi gula di teh hangat percakapan.<br>
+      Kita menua pelan-pelan, dengan tawa, doa, dan harapan—<br>
+      di setiap langkah, aku memilihmu lagi dan lagi. ✨
+    </blockquote>
+    <p>
+      Terima kasih telah hadir sebagai rumah yang lembut. Aku berjanji untuk mendengar lebih saksama, menunggu lebih sabar,
+      dan mencintai lebih dewasa. Kita tumbuh bersama: menghargai batas, mendukung mimpi, dan tertawa pada hal-hal kecil
+      yang kadang orang lupa untuk syukuri. 🎂
+    </p>
+  </section>
+
+  <!-- 16 Alasan -->
+  <section id="alasan" class="section content glass">
+    <h2 class="section-title">16 Alasan Aku Mencintaimu</h2>
+    <ol class="reasons">
+      <li>Caramu menyebut namaku seolah itu doa kecil yang menenangkan.</li>
+      <li>Tawamu ringan, tapi mampu mengangkat berat di dada.</li>
+      <li>Kamu mengingat hal-hal kecil—dan membuatnya terasa besar.</li>
+      <li>Matamu jujur, tidak pandai berbohong pada kebaikan.</li>
+      <li>Kamu mengajarkan sabar tanpa menggurui.</li>
+      <li>Semangatmu menular, mimpi-mimpimu menyalakan mimpi-mimpiku.</li>
+      <li>Pelanmu elegan; kamu tak terburu, tapi selalu sampai.</li>
+      <li>Kamu sayang keluarga dan menghargai teman.</li>
+      <li>Kamu berani meminta maaf, dan itu indah.</li>
+      <li>Kamu membuatku ingin menjadi versi terbaik diriku.</li>
+      <li>Caramu mendengarkan, membuatku berani jujur.</li>
+      <li>Kamu tidak takut tertawa pada kekonyolan kita sendiri.</li>
+      <li>Kamu menghargai batas, termasuk milikku dan milikmu.</li>
+      <li>Setiamu sunyi, tapi terasa paling nyaring di hati.</li>
+      <li>Kamu selalu menemukan cahaya bahkan saat redup.</li>
+      <li>Karena kamu adalah <em>cykal qivi ichiya putri</em>: rumah bagi rinduku.</li>
+    </ol>
+    <p class="promise">
+      Janjiku sederhana tapi sungguh-sungguh: aku akan menjagamu dengan kata yang lembut, menguatkanmu dengan doa yang hangat,
+      dan merayakan setiap kemajuanmu—sekecil apa pun—dengan bangga. Kita berjalan santun, saling dukung, tanpa memaksa
+      menjadi selain diri sendiri.
+    </p>
+  </section>
+
+  <!-- Harapan & Doa -->
+  <section id="doa" class="section content glass">
+    <h2 class="section-title">Harapan & Doa</h2>
+    <p>
+      Ya Tuhan, titip langkah <strong>cykal qivi ichiya putri</strong> di usia manis ke-16 ini. Luaskan hatinya, lembutkan ucapnya,
+      sehatkan raganya, cerahkan jalannya. Semoga hari-harinya penuh keberanian untuk bermimpi dan kebijaksanaan untuk melangkah.
+    </p>
+    <p>
+      Jika kelak badai datang, semoga ia ingat bahwa ada lengan-lengan doa yang memeluknya. Jika bahagia mekar, semoga ia membaginya
+      sebagai benih kebaikan. Dan semoga cinta kita, yang bertumbuh jujur dan sehat, selalu tahu arah pulang. 💞
+    </p>
+    <div class="heart-pulse" aria-hidden="true">❤</div>
+  </section>
+
+  <!-- Make a Wish -->
+  <section id="wish" class="section content glass">
+    <h2 class="section-title">Make a Wish</h2>
+    <p>Tutup mata, bisikkan keinginan rahasia, lalu tekan tombol di bawah. Biarkan langit kecil kita menyalakan kembang api!</p>
+    <button id="wishBtn" class="btn glow" aria-label="Nyalakan kembang api dan confetti">✨ Make a Wish</button>
+  </section>
+
+  <!-- Kejutan Akhir -->
+  <section id="kejutan" class="section content glass">
+    <h2 class="section-title">Kejutan Akhir</h2>
+    <p>Ada sesuatu yang ingin kusampaikan, dari aku untukmu.</p>
+    <div class="cta-row">
+      <button id="hugBtn" class="btn bounce" aria-label="Peluk Virtual">🤗 Peluk Virtual</button>
+      <button id="surpriseBtn" class="btn secondary" aria-haspopup="dialog" aria-controls="modalSurprise">🎁 Buka Kejutan</button>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="modalSurprise" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc" hidden>
+    <div class="modal-dialog glass">
+      <button class="modal-close icon-btn" id="closeModal" aria-label="Tutup modal">✕</button>
+      <h3 id="modalTitle" class="section-title">Pesan Rahasia</h3>
+      <p id="modalDesc">
+        Aku mencintaimu dengan cara yang ingin selalu menumbuhkanmu. Jika suatu hari kamu ragu, bacalah ini: kamu berharga, cukup,
+        dan layak dicintai. Terima kasih telah memilihku hari ini—izinkan aku memilihmu lagi besok. 💖
+      </p>
+      <button class="btn primary" id="rainHeartsBtn" aria-label="Hujankan hati">💗 Hujan Hati</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© Cinta yang Tumbuh, hari ini dan seterusnya • Sweet Sixteen untuk <strong>cykal qivi ichiya putri</strong></p>
+    <small>Dirayakan dengan kode, kata, dan kasih.</small>
+  </footer>
+
+  <!-- Hidden audio element (no autoplay) -->
+  <audio id="romanceAudio" preload="none" aria-hidden="true"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
