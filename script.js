@@ -36,7 +36,7 @@
   /* ---------- Typewriter ---------- */
   const typeEl = $("#typewriter");
   const message = [
-    "Untukmu, manis yang berusia enam belas—",
+    "Untukmu, manis yang berusia enam belas tahun sekarang",
     "semoga setiap langkahmu dipeluk cahaya.",
     "Terima kasih telah memilihku menjadi teman tumbuh,",
     "hari ini, esok, dan seterusnya. 💖"
@@ -203,100 +203,44 @@
   blowBtn.addEventListener("click", blowCandle);
   blowBtn.addEventListener("keydown", (e)=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); blowCandle(); }});
   $("#scrollWords").addEventListener("click", ()=> $("#kata").scrollIntoView({behavior:"smooth"}));
+/* ---------- Musik pakai <audio> file ---------- */
+const musicBtn = document.getElementById("musicBtn");
+const audioEl  = document.getElementById("bgMusic");
+let musicOn = false;
 
-  /* ---------- WebAudio music (simple romantic pad) ---------- */
-  let audioCtx, masterGain, notes = [], musicOn = false;
-
-  function initAudio(){
-    if(audioCtx) return;
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    masterGain = audioCtx.createGain();
-    masterGain.gain.value = 0.15;
-    masterGain.connect(audioCtx.destination);
-
-    // create soft triad pad (C - G - A - F progression)
-    const scale = [0, 7, 9, 5]; // semitones offsets
-    const base = 261.63; // C4
-    for(let i=0;i<3;i++){
-      const osc = audioCtx.createOscillator();
-      osc.type = i===0 ? "sine" : (i===1 ? "triangle" : "sine");
-      const gain = audioCtx.createGain();
-      gain.gain.value = 0.0;
-      osc.connect(gain).connect(masterGain);
-      osc.start();
-      notes.push({osc, gain});
-    }
-
-    // gentle LFO for shimmer
-    const lfo = audioCtx.createOscillator();
-    const lfoGain = audioCtx.createGain();
-    lfo.frequency.value = 0.2;
-    lfoGain.gain.value = 8; // cents detune
-    lfo.connect(lfoGain);
-    notes.forEach(n => lfoGain.connect(n.osc.detune));
-    lfo.start();
-
-    // chord progression loop
-    let step = 0;
-    function schedule(){
-      if(!musicOn) return;
-      const chord = scale[step % scale.length];
-      const f1 = base * Math.pow(2, chord/12);
-      const f2 = f1 * Math.pow(2, 4/12); // major third
-      const f3 = f1 * Math.pow(2, 7/12); // fifth
-      const freqs = [f1, f2, f3];
-
-      notes.forEach((n,i)=>{
-        n.osc.frequency.setTargetAtTime(freqs[i], audioCtx.currentTime, 0.1);
-        n.gain.gain.cancelScheduledValues(audioCtx.currentTime);
-        n.gain.gain.setTargetAtTime(0.12, audioCtx.currentTime, 0.2);
-      });
-
-      // fade out before next chord
-      setTimeout(()=>{
-        notes.forEach(n=>{
-          n.gain.gain.setTargetAtTime(0.02, audioCtx.currentTime, 0.2);
-        });
-      }, 2800);
-
-      step++;
-      musicTimer = setTimeout(schedule, 3200);
-    }
-    musicSchedule = schedule;
+function toggleMusic(){
+  if (audioEl.paused){
+    audioEl.play().catch(()=>{});   // butuh gesture user di browser modern
+    musicOn = true;
+    localStorage.setItem("musicOn","1");
+    musicBtn.classList.add("on");
+    musicBtn.title = "Jeda musik";
+    musicBtn.setAttribute("aria-label","Jeda musik romantis");
+  } else {
+    audioEl.pause();
+    musicOn = false;
+    localStorage.setItem("musicOn","0");
+    musicBtn.classList.remove("on");
+    musicBtn.title = "Putar musik";
+    musicBtn.setAttribute("aria-label","Putar musik romantis");
   }
-  let musicSchedule = null, musicTimer = null;
+}
 
-  const musicBtn = $("#musicBtn");
-  function toggleMusic(){
-    if(!audioCtx) initAudio();
-    if(!musicOn){
-      audioCtx.resume();
-      musicOn = true;
-      localStorage.setItem("musicOn","1");
-      musicBtn.classList.add("on");
-      musicBtn.title = "Jeda musik";
-      musicBtn.setAttribute("aria-label","Jeda musik romantis");
-      if(musicSchedule) musicSchedule();
-    }else{
-      musicOn = false;
-      localStorage.setItem("musicOn","0");
-      musicBtn.classList.remove("on");
-      musicBtn.title = "Putar musik";
-      musicBtn.setAttribute("aria-label","Putar musik romantis");
-      clearTimeout(musicTimer);
-      // fade to silence
-      notes.forEach(n=> n.gain.gain.setTargetAtTime(0.0, audioCtx.currentTime, 0.2));
-    }
+musicBtn.addEventListener("click", toggleMusic);
+musicBtn.addEventListener("keydown", e=>{
+  if(e.key==="Enter"||e.key===" "){
+    e.preventDefault();
+    toggleMusic();
   }
-  musicBtn.addEventListener("click", toggleMusic);
-  musicBtn.addEventListener("keydown", e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); toggleMusic(); }});
+});
 
-  // restore preference (only start after user click on page)
-  document.addEventListener("pointerdown", onceInteract, {once:true});
-  function onceInteract(){
-    const pref = localStorage.getItem("musicOn");
-    if(pref==="1"){ toggleMusic(); }
-  }
+// restore preferensi setelah interaksi pertama
+document.addEventListener("pointerdown", function once(){
+  const pref = localStorage.getItem("musicOn");
+  if (pref === "1") audioEl.play().catch(()=>{});
+  document.removeEventListener("pointerdown", once);
+}, {once:true});
+
 
   // small whoosh when blowing candle
   function whoosh(){
@@ -437,7 +381,7 @@
   const hugBtn = $("#hugBtn");
   hugBtn.addEventListener("click", ()=>{
     hugBtn.classList.add("hugged");
-    hugBtn.textContent = "🤗 Peluk Terkirim!";
+    hugBtn.textContent = "🤗 !";
     setTimeout(()=>{ hugBtn.classList.remove("hugged"); hugBtn.textContent = "🤗 Peluk Virtual"; }, 2200);
     // big heart burst
     const r = hugBtn.getBoundingClientRect();

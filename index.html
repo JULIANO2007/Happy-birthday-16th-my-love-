@@ -11,8 +11,7 @@
 
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <!-- Parallax + Bokeh + Hearts (canvas layers) -->
+<body>  <!-- Parallax + Bokeh + Hearts (canvas layers) -->
   <div class="parallax">
     <div class="layer layer-1" aria-hidden="true"></div>
     <div class="layer layer-2" aria-hidden="true"></div>
@@ -22,23 +21,29 @@
   <canvas id="fxCanvas" aria-hidden="true"></canvas>
 
   <!-- Mini Nav -->
-  <header class="mini-nav">
-    <a href="#hero" class="logo" aria-label="Kembali ke awal">
-      <span class="logo-heart" aria-hidden="true">❤</span> Cinta16
-    </a>
-    <nav>
-      <a href="#kata">Kata-kata</a>
-      <a href="#alasan">16 Alasan</a>
-      <a href="#doa">Harapan & Doa</a>
-      <a href="#wish">Make a Wish</a>
-      <a href="#kejutan">Kejutan</a>
-    </nav>
-    <div class="nav-actions">
-      <button id="musicBtn" class="icon-btn" aria-label="Putar / Jeda musik romantis" title="Musik">
-        <span class="icon" aria-hidden="true">♫</span>
-      </button>
-    </div>
-  </header>
+<!-- Audio -->
+<audio id="bgMusic" src="wheneseyourface.mp3" loop preload="auto"></audio>
+
+<!-- Mini Nav -->
+<header class="mini-nav">
+  <a href="#hero" class="logo" aria-label="Kembali ke awal">
+    <span class="logo-heart" aria-hidden="true">❤</span> selamat ulang tahun yang ke- 16th
+  </a>
+
+  <!-- Tombol Musik Dekat Logo -->
+  <button id="musicBtn" class="icon-btn" aria-label="Putar / Jeda musik romantis" title="Musik">
+    <span class="icon" aria-hidden="true">♫</span>
+  </button>
+
+  <nav>
+    <a href="#kata">I Kata-kata I</a>
+    <a href="#alasan">16 Alasan I</a>
+    <a href="#doa">Harapan & Doa I</a>
+    <a href="#wish">Make a Wish I</a>
+    <a href="#kejutan">Kejutan I</a>
+  </nav>
+</header>
+
 
   <!-- HERO -->
   <section id="hero" class="hero section">
@@ -52,7 +57,7 @@
         <p id="typewriter" class="typewriter" aria-live="polite"></p>
         <div class="hero-ctas">
           <button id="blowBtn" class="btn primary" aria-label="Tiup lilin">🎂 Tiup Lilin</button>
-          <button id="scrollWords" class="btn ghost" aria-label="Lanjut baca kata-kata manis">Baca Kata-kata 💖</button>
+          <button id="scrollWords" class="btn ghost" aria-label="Lanjut baca kata-kata manis">Klik donk💖</button>
         </div>
         <small class="hint">Klik di mana saja untuk menebar hati kecil ✨</small>
       </div>
@@ -147,25 +152,25 @@
 
   <!-- Kata-kata Cinta -->
   <section id="kata" class="section content glass">
-    <h2 class="section-title">Kata-kata Cinta</h2>
+    <h2 class="section-title">Happy birthday</h2>
     <p>
-      Selamat ulang tahun ke-16, <strong>cykal qivi ichiya putri</strong>. Di antara bintang yang malu-malu, namamu seperti
+      Selamat ulang tahun yang ke 16, <strong>Cykal Qivi Ichiya Putri</strong>. Di antara bintang yang malu-malu, namamu seperti
       lampu-lampu kecil yang menuntun pulang. Sweet sixteen yang bersinar, semoga langkahmu selalu diliputi cinta dan cahaya. 💖
     </p>
     <p>
-      Hari ini, esok, dan seterusnya, aku bersyukur memilikimu—bukan hanya sebagai kisah indah, tapi juga sebagai sahabat
+      Hari ini, esok, dan seterusnya, aku bersyukur memilikimu bukan hanya sebagai kisah indah, tapi juga sebagai sahabat
       yang menggenggam tanganku saat ragu, menepuk pundakku saat lelah, dan tertawa paling keras saat kita lucu bersama.
       Jika waktu adalah lagu, maka kamu adalah nada-nada manis yang membuat segalanya terdengar lebih utuh.
     </p>
     <blockquote class="poem" aria-label="Puisi untuk cykal qivi ichiya putri">
-      Di gelas senja, kutuang namamu perlahan,<br>
-      jadi gula di teh hangat percakapan.<br>
-      Kita menua pelan-pelan, dengan tawa, doa, dan harapan—<br>
-      di setiap langkah, aku memilihmu lagi dan lagi. ✨
+      Di gelas senja, kutuang namamu perlahan....<br>
+      jadi gula di teh hangat percakapan...<br>
+      Kita berjalan pelan-pelan, dengan tawa, doa, dan harapan...<br>
+      Di setiap langkah, aku memilihmu lagi dan lagi... ✨
     </blockquote>
     <p>
       Terima kasih telah hadir sebagai rumah yang lembut. Aku berjanji untuk mendengar lebih saksama, menunggu lebih sabar,
-      dan mencintai lebih dewasa. Kita tumbuh bersama: menghargai batas, mendukung mimpi, dan tertawa pada hal-hal kecil
+      dan mencintai lebih dewasa. Kita tumbuh bersama menghargai batas, mendukung mimpi, dan tertawa pada hal-hal kecil
       yang kadang orang lupa untuk syukuri. 🎂
     </p>
   </section>
@@ -176,12 +181,12 @@
     <ol class="reasons">
       <li>Caramu menyebut namaku seolah itu doa kecil yang menenangkan.</li>
       <li>Tawamu ringan, tapi mampu mengangkat berat di dada.</li>
-      <li>Kamu mengingat hal-hal kecil—dan membuatnya terasa besar.</li>
+      <li>Kamu mengingat hal-hal kecil dan membuatnya terasa besar.</li>
       <li>Matamu jujur, tidak pandai berbohong pada kebaikan.</li>
       <li>Kamu mengajarkan sabar tanpa menggurui.</li>
       <li>Semangatmu menular, mimpi-mimpimu menyalakan mimpi-mimpiku.</li>
-      <li>Pelanmu elegan; kamu tak terburu, tapi selalu sampai.</li>
-      <li>Kamu sayang keluarga dan menghargai teman.</li>
+      <li>Pelanmu elegan kamu tidak selalu buru buru, tapi selalu sampai.</li>
+      <li>Kamu bisa menghargai orang orang.</li>
       <li>Kamu berani meminta maaf, dan itu indah.</li>
       <li>Kamu membuatku ingin menjadi versi terbaik diriku.</li>
       <li>Caramu mendengarkan, membuatku berani jujur.</li>
@@ -189,11 +194,11 @@
       <li>Kamu menghargai batas, termasuk milikku dan milikmu.</li>
       <li>Setiamu sunyi, tapi terasa paling nyaring di hati.</li>
       <li>Kamu selalu menemukan cahaya bahkan saat redup.</li>
-      <li>Karena kamu adalah <em>cykal qivi ichiya putri</em>: rumah bagi rinduku.</li>
+      <li>Karena kamu adalah <em>Cykal Qivi Ichiya Putri</em>: Rumah bagi rinduku.</li>
     </ol>
     <p class="promise">
-      Janjiku sederhana tapi sungguh-sungguh: aku akan menjagamu dengan kata yang lembut, menguatkanmu dengan doa yang hangat,
-      dan merayakan setiap kemajuanmu—sekecil apa pun—dengan bangga. Kita berjalan santun, saling dukung, tanpa memaksa
+      Janjiku sederhana tapi sungguh-sungguh aku akan menjagamu dengan kata yang lembut, menguatkanmu dengan doa yang hangat,
+      dan merayakan setiap kemajuanmu sekecil apa pun—dengan bangga. Kita berjalan santun, saling dukung, tanpa memaksa
       menjadi selain diri sendiri.
     </p>
   </section>
@@ -202,7 +207,7 @@
   <section id="doa" class="section content glass">
     <h2 class="section-title">Harapan & Doa</h2>
     <p>
-      Ya Tuhan, titip langkah <strong>cykal qivi ichiya putri</strong> di usia manis ke-16 ini. Luaskan hatinya, lembutkan ucapnya,
+      Ya Tuhan, titip langkah <strong>Cykal Qivi Ichiya putri</strong> di usia manis ke 16 ini. Luaskan hatinya, lembutkan ucapnya,
       sehatkan raganya, cerahkan jalannya. Semoga hari-harinya penuh keberanian untuk bermimpi dan kebijaksanaan untuk melangkah.
     </p>
     <p>
@@ -215,7 +220,7 @@
   <!-- Make a Wish -->
   <section id="wish" class="section content glass">
     <h2 class="section-title">Make a Wish</h2>
-    <p>Tutup mata, bisikkan keinginan rahasia, lalu tekan tombol di bawah. Biarkan langit kecil kita menyalakan kembang api!</p>
+    <p>Tutup mata, bisikkan keinginan rahasia, lalu tekan tombol di bawah. Biarkan langit kecil yang menyalakan kembang api!</p>
     <button id="wishBtn" class="btn glow" aria-label="Nyalakan kembang api dan confetti">✨ Make a Wish</button>
   </section>
 
@@ -235,8 +240,8 @@
       <button class="modal-close icon-btn" id="closeModal" aria-label="Tutup modal">✕</button>
       <h3 id="modalTitle" class="section-title">Pesan Rahasia</h3>
       <p id="modalDesc">
-        Aku mencintaimu dengan cara yang ingin selalu menumbuhkanmu. Jika suatu hari kamu ragu, bacalah ini: kamu berharga, cukup,
-        dan layak dicintai. Terima kasih telah memilihku hari ini—izinkan aku memilihmu lagi besok. 💖
+        Aku mencintaimu dengan cara yang ingin selalu menumbuhkanmu. Jika suatu hari kamu ragu, bacalah ini kamu berharga, cukup,
+        dan layak dicintai. Terima kasih telah memilihku hari ini izinkan aku memilihmu lagi besok. 💖
       </p>
       <button class="btn primary" id="rainHeartsBtn" aria-label="Hujankan hati">💗 Hujan Hati</button>
     </div>
@@ -244,7 +249,7 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <p>© Cinta yang Tumbuh, hari ini dan seterusnya • Sweet Sixteen untuk <strong>cykal qivi ichiya putri</strong></p>
+    <p>© Cinta yang Tumbuh, hari ini dan seterusnya • Sweet Sixteen untuk <strong>Cykal Qivi Ichiya Putri</strong></p>
     <small>Dirayakan dengan kode, kata, dan kasih.</small>
   </footer>
 
@@ -254,3 +259,36 @@
   <script src="script.js"></script>
 </body>
 </html>
+<script>
+  const bgMusic = document.getElementById("bgMusic");
+  const musicBtn = document.getElementById("musicBtn");
+  let isPlaying = false;
+
+  // Tombol musik
+  musicBtn.addEventListener("click", () => {
+    if (isPlaying) {
+      bgMusic.pause();
+      isPlaying = false;
+      musicBtn.innerHTML = '<span class="icon">♫</span>';
+    } else {
+      bgMusic.play()
+        .then(() => {
+          isPlaying = true;
+          musicBtn.innerHTML = '<span class="icon">⏸</span>';
+        })
+        .catch(err => console.log("Gagal memutar musik:", err));
+    }
+  });
+
+  // Klik di mana saja (selain tombol)
+  document.addEventListener("click", () => {
+    if (!isPlaying) {
+      bgMusic.play()
+        .then(() => {
+          isPlaying = true;
+          musicBtn.innerHTML = '<span class="icon">⏸</span>';
+        })
+        .catch(err => console.log("Harus interaksi user dulu:", err));
+    }
+  }, { once: true }); // hanya jalan sekali
+</script>
